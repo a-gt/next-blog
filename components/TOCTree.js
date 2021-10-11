@@ -38,7 +38,7 @@ const StyledLink = styled.a`
 const Container = styled.div`
   position: ${(props) => (props.sticky ? "sticky" : "relative")};
   top: 0;
-  padding-top: 10px;
+  padding-top: ${(props) => (!props.desktop ? "10x" : "80px")};
 `;
 
 const SVG = styled.svg`
@@ -140,7 +140,7 @@ export default function TOCTree({ tocTree }) {
   }, [activeHeadingId, navItemsState]);
 
   return (
-    <Container sticky={desktop}>
+    <Container sticky={desktop} activeHeadingId={activeHeadingId}>
       <Heading>TABLE OF CONTENTS</Heading>
       <StyledUl ref={nav}>
         <SVG xmlns="http://www.w3.org/2000/svg">
@@ -173,7 +173,7 @@ export default function TOCTree({ tocTree }) {
 }
 
 const useActiveHeading = (headings) => {
-  const [activeHeadingId, setActiveHeading] = React.useState(null);
+  const [activeHeadingId, setActiveHeading] = useState(null);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
