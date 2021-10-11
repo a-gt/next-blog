@@ -36,9 +36,8 @@ const StyledLink = styled.a`
 `;
 
 const Container = styled.div`
-  position: ${(props) => (props.sticky ? "sticky" : "relative")};
-  top: 0;
-  padding-top: ${(props) => (!props.desktop ? "10x" : "80px")};
+  position: ${(props) => (props.desktop ? "sticky" : "relative")};
+  top: 80px;
 `;
 
 const SVG = styled.svg`
@@ -140,7 +139,7 @@ export default function TOCTree({ tocTree }) {
   }, [activeHeadingId, navItemsState]);
 
   return (
-    <Container sticky={desktop} activeHeadingId={activeHeadingId}>
+    <Container desktop={desktop}>
       <Heading>TABLE OF CONTENTS</Heading>
       <StyledUl ref={nav}>
         <SVG xmlns="http://www.w3.org/2000/svg">
