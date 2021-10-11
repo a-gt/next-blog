@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }) => (
         rel="stylesheet"
       />
       <link
-        href="https://ghcdn.rawgit.org/PrismJS/prism-themes/master/themes/prism-duotone-dark.css"
+        href="https://ghcdn.rawgit.org/PrismJS/prism-themes/master/themes/prism-dracula.css"
         rel="stylesheet"
       />
     </Head>

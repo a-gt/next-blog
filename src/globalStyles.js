@@ -23,12 +23,37 @@ const GlobalStyles = createGlobalStyle`
     margin-bottom: 1.5rem;
   }
 
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(110, 118, 129, 0.4);
+    border-radius: 3px;
+    transition: background 0.1s;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(110, 118, 129, 0.6);
+  }
+
   pre {
     border-radius: 10px;
   }
 
   code {
-    font-family: 'Noto Sans Mono', monospace;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(110, 118, 129, 0.4);
+    border-radius: 6px;
   }
 `;
 

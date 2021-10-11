@@ -18,17 +18,17 @@ const StyledA = styled.a`
 export default function CustomLink({ as, href, ...otherProps }) {
   return (
     <>
-      {!href.startsWith("http") ? (
-        <Link as={as} href={href}>
-          <StyledA {...otherProps} />
-        </Link>
-      ) : (
+      {href?.startsWith("http") ? (
         <StyledA
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           {...otherProps}
         />
+      ) : (
+        <Link as={as} href={href} passHref>
+          <StyledA {...otherProps} />
+        </Link>
       )}
     </>
   );

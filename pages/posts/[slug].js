@@ -15,12 +15,14 @@ import generateToc from "markdown-toc-unlazy";
 import TOCTree from "../../components/TOCTree";
 import PostLayout from "../../components/PostLayout";
 import Quote from "../../components/Quote";
+import InlineCode from "../../components/InlineCode";
 
 const components = {
   a: Link,
+  blockquote: Quote,
   TestComponent: dynamic(() => import("../../components/TestComponent")),
   Head,
-  blockquote: Quote
+  inlineCode: InlineCode
 };
 
 export default function PostPage({ tocTree, source, frontMatter }) {

@@ -2,25 +2,26 @@ import styled from "styled-components";
 
 const BlockQuote = styled.blockquote`
   position: relative;
-  font-family: "Sanchez", serif;
-  font-size: 2.4em;
-  line-height: 1.5em;
   font-style: italic;
-  &:before {
-    content: "\201C";
-    position: absolute;
-    top: 0.25em;
-    left: -0.15em;
+  border-left: 4px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding-left: 5px;
+
+  p:before {
+    content: '“';
     color: rgba(255, 255, 255, 0.4);
-    font-size: 6em;
-    z-index: -1;
+  }
+
+  p:after {
+    content: '” ' attr(cite);
+    color: rgba(255, 255, 255, 0.4);
   }
 `;
 
-export function Quote({ children }) {
+export default function Quote({ children }) {
   return (
     <BlockQuote>
-      <p>{children}</p>
+      {children}
     </BlockQuote>
   );
 }
