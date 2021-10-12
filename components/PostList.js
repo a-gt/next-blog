@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { List, ListItem } from "./List";
+import styled, {keyframes} from "styled-components";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   background-color: rgb(35, 42, 47);
@@ -65,11 +65,36 @@ const Post = styled.a`
   transition: all 0.1s;
 
   &:hover {
-    color: rgba(250, 250, 250)
+    color: rgba(250, 250, 250);
   }
 `;
 
+const blink = keyframes`
+  from {
+    background: white;
+  }
+  50% {
+    background: white;
+  }
+  70% {
+    background: transparent;
+  }
+  to {
+    background: white;
+  }
+`
+
+const Cursor = styled.div`
+  height: 1em;
+  width: 2px;
+  transform: translateY(5px);
+  animation: ${blink} 1.1s infinite;
+  background: white;
+  display: block;
+`
+
 export default function PostList({ posts }) {
+  const [clicked, setClicked] = useState(null);
   return (
     <Container>
       <Header>
@@ -80,17 +105,20 @@ export default function PostList({ posts }) {
           {posts.map((_, i) => (
             <p key={i}>{i}</p>
           ))}
+          <p>{posts.length + 1}</p>
         </div>
         <Posts>
-          {posts.map(({ data, ...post}, i) => (
+          {posts.map(({ data, ...post }, i) => (
             <Link
               key={i}
               href={"/posts/" + post.filePath.replace(/\.mdx?$/, "")}
+              onClick={() => setClicked(post.filePath)}
               passHref
             >
               <Post>{data.title}</Post>
             </Link>
           ))}
+          <Cursor />
         </Posts>
       </Body>
     </Container>
