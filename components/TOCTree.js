@@ -37,7 +37,7 @@ const StyledLink = styled.a`
 
 const Container = styled.div`
   position: ${(props) => (props.desktop ? "sticky" : "relative")};
-  top: 80px;
+  top: ${(props) => (props.desktop ? "80px" : "0")};
 `;
 
 const SVG = styled.svg`
@@ -51,7 +51,7 @@ const SVG = styled.svg`
   & > path {
     transition: all 300ms ease;
     fill: transparent;
-    stroke: tomato;
+    stroke: #3be8b0;
     stroke-width: 3px;
     stroke-dasharray: 0 0 0 1000;
     stroke-linecap: round;
@@ -157,7 +157,7 @@ export default function TOCTree({ tocTree }) {
               <StyledLink
                 style={{
                   "--color":
-                    activeHeadingId === heading.slug ? "tomato" : "#919eab"
+                    activeHeadingId === heading.slug ? "#3be8b0" : "#919eab"
                 }}
                 href={"#" + heading.slug}
               >

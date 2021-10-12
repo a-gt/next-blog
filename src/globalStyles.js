@@ -1,20 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-  * {
+  /* {
     margin: 0;
     padding: 0;
-  }
+  }*/
 
   :root {
-    --site-color: tomato;
-    --background-color: #161c24;
-    --divider-color: rgba(255, 255, 255, 0.4);
+    --site-color: #3be8b0;
+    --background-color: rgb(24, 24, 27);
+    --underline-color: rgba(255, 255, 255, 0.4);
+    color-scheme: dark;
   }
 
   html {
-    font: 100%/1.5 "Inter", sans-serif;
-    background: var(--background-color);
+    font: 100%/1.5 "Ilisarniq", sans-serif;
+    background-image: url("https://blaze.now.sh/assets/images/noise.png");
+    background-color: var(--background-color);
+    background-size: 15%;
     color: white;
   }
 
@@ -23,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     margin-bottom: 1.5rem;
   }
 
-  ::-webkit-scrollbar {
+  /*::-webkit-scrollbar {
     width: 5px;
     height: 5px;
   }
@@ -41,7 +44,7 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(110, 118, 129, 0.6);
-  }
+  }*/
 
   pre {
     border-radius: 10px;

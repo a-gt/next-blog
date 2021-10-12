@@ -6,7 +6,7 @@ const Layout = styled.div`
   margin: 0;
   padding: 10px 0;
   min-width: 350px;
-  grid: auto / 200px minmax(300px, 600px);
+  grid: auto / 200px minmax(300px, calc(100vw - 18rem));
   align-items: start;
   justify-content: center;
 `;

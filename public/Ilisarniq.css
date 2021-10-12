@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Bold.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Black.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-DemiItalic.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-DemiItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-BlackItalic.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Italic.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-BoldItalic.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Demi.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Demi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-LightItalic.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Light.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ilisarniq';
+    src: url('fonts/Ilisarniq/Ilisarniq-Regular.woff2') format('woff2'),
+        url('fonts/Ilisarniq/Ilisarniq-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -19,15 +19,15 @@ const Layout = styled.div`
   }
 
   &:hover {
-    border: 2px solid tomato;
+    border: 2px solid #3be8b0;
 
     h3 {
-      color: tomato;
+      color: #3be8b0;
     }
 
     a {
-      color: tomato;
-      text-decoration-color: tomato;
+      color: #3be8b0;
+      text-decoration-color: #3be8b0;
     }
   }
 `;

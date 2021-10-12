@@ -7,6 +7,7 @@ import PostLink from "../components/PostLink";
 import Head from "next/head";
 import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 import styled from "styled-components";
+import Highlight from "../components/Highlight"
 
 const Links = styled.div`
   display: flex;
@@ -20,10 +21,9 @@ export default function Index({ posts }) {
       <Head>
         <title>Blog</title>
       </Head>
-      <h1>Blog - Home Page</h1>
-      <p>
-        Here are some <code>poems</code> written by some famous poets:
-      </p>
+      <h1>
+      Hey there, This is my <Highlight>Blog</Highlight>!
+      </h1>
       <Links>
         {posts.map((post) => (
           <PostLink
