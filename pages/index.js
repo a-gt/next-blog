@@ -22,6 +22,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   grid-gap: 40px;
+  @media (max-width: 768px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 export default function Index({ posts }) {
