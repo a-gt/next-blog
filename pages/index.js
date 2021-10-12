@@ -18,10 +18,11 @@ const Links = styled.div`
 const Grid = styled.div`
   margin-top: 100px;
   margin-bottom: 30px;
-  width: 100%;
+  width: calc(100% - 40px);
   display: grid;
   grid-template-columns: 50% 50%;
   grid-gap: 40px;
+
   @media (max-width: 768px) {
     grid-template-columns: 100%;
   }
