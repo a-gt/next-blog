@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.code`
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  font-family: 'Fira Code', monospace;
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;

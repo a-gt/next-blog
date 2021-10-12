@@ -3,13 +3,12 @@ import Link from "./Link";
 import { useRouter } from "next/router";
 
 const Layout = styled.div`
-  min-width: 200px;
-  max-width: 200px;
-  min-height: 200px;
+  width: 200px;
+  height: 300px;
   border-radius: 10px;
   margin: 10px;
-  border: 2px solid rgba(110, 118, 129, 0.4);
-  background-color: rgba(110, 118, 129, 0.4);
+  border: 2px solid rgba(110, 118, 129, 0.1);
+  background-color: rgba(110, 118, 129, 0);
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s;
@@ -41,16 +40,9 @@ export default function PostLink({ title, description, path, image }) {
         router.push("/posts/" + path.replace(/\.mdx?$/, ""));
       }}
     >
-      {image ? <img src={image} width="200px" /> : <></>}
       <div style={{ padding: "10px" }}>
         <h3>{title}</h3>
-        <p style={{ fontSize: "0.9em" }}>{description}</p>
-        <Link
-          href={"/posts/[slug]"}
-          as={"/posts/" + path.replace(/\.mdx?$/, "")}
-        >
-          Read More
-        </Link>
+        {image ? <img src={image} width="200px" /> : <></>}
       </div>
     </Layout>
   );
