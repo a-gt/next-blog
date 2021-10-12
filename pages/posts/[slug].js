@@ -32,11 +32,6 @@ export default function PostPage({ tocTree, source, frontMatter }) {
         <title>Blog - {frontMatter.title}</title>
       </Head>
       <div id="intro" />
-      <header>
-        <nav>
-          <Link href="/">👈 Go back home</Link>
-        </nav>
-      </header>
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (
