@@ -100,6 +100,7 @@ export default function PostList({ posts }) {
           <Typist startDelay={2000}>
             <TerminalInput>fetch next-blog/posts</TerminalInput>
             <br />
+            <Typist.Delay ms={500}></Typist.Delay>
             Loading...
             <Typist.Backspace count={10} delay={500} />
             <u>{posts.length.toString()} posts found:</u> <br />
