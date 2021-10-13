@@ -63,22 +63,22 @@ const Post = styled.a`
   width: fit-content;
   margin: 0;
   padding: 2px 2px;
-  color: rgba(250, 250, 250);
+  color: #3886db;
   transition: all 0.1s;
-  font-style: italic;
-  text-decoration: none;
+  text-decoration-color: transparent;
 
   &:hover {
-    color: var(--site-color);
+    text-decoration-color: #3886db;
   }
 `;
 
 const TerminalInput = styled.span`
   font-family: "Fira Code", monospace;
+  color: rgb(250, 250, 250);
 
   &:before {
-    content: "$ ";
-    color: var(--site-color);
+    content: "next@blog/posts # ";
+    color: #e83a71;
     font-family: "Fira Code", monospace;
   }
 `;
@@ -98,21 +98,22 @@ export default function PostList({ posts }) {
         </div>*/}
         <Posts>
           <Typist startDelay={2000}>
-            <TerminalInput>fetch next-blog/posts</TerminalInput>
+            <TerminalInput>ls posts/</TerminalInput>
             <br />
-            <Typist.Delay ms={500}></Typist.Delay>
+            <Typist.Delay ms={200}></Typist.Delay>
             Loading...
             <Typist.Backspace count={10} delay={500} />
-            <u>{posts.length.toString()} posts found:</u> <br />
+            <span style={{ color: "#3886DB" }}>.</span> <br />
+            <span style={{ color: "#3886DB" }}>..</span> <br />
+            <span style={{ color: "var(--site-color)" }}>.next</span> <br />
             {posts.map(({ data, ...post }, i) => (
               <span key={i}>
-                <span style={{ color: "#E83A71" }}>{(i + 1).toString()}. </span>
                 <Link
                   href={"/posts/" + post.filePath.replace(/\.mdx?$/, "")}
                   onClick={() => setClicked(post.filePath)}
                   passHref
                 >
-                  <Post>{data.title}</Post>
+                  <Post>{data.title.toLowerCase()}</Post>
                 </Link>
                 <br />
               </span>
