@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Link from "./Link";
 import useMeadiQuery from "../src/hooks/useMediaQuery";
+import useAtTop from "../src/hooks/useAtTop";
 import HamburgerButton from "./HamburgerButton";
 
-const Wrapper = styled.div`
+export const Section = styled.div`
   padding-top: 100px;
   box-sizing: border-box;
   padding-left: 2.5rem;
@@ -35,6 +36,24 @@ const Wrapper = styled.div`
     max-width: 1536px;
     padding-left: 9rem;
     padding-right: 9rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(161, 161, 170);
+    margin-top: 0;
   }
 `;
 
@@ -246,48 +265,7 @@ export default function Layout({ children }) {
           )}
         </ToolbarContent>
       </Toolbar>
-      <Wrapper>{children}</Wrapper>
+      {children}
     </>
   );
 }
-
-const useAtTop = () => {
-  const [atTop, setAtTop] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.pageYOffset === 0) {
-        return setAtTop(true);
-      } else if (atTop === true) {
-        return setAtTop(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [atTop]);
-
-  return atTop;
-};
-
-export const throttle = (func, limit) => {
-  let lastFunc;
-  let lastRan;
-  return function (...args) {
-    if (!lastRan) {
-      func.apply(null, args);
-      lastRan = Date.now();
-    } else {
-      clearTimeout(lastFunc);
-      lastFunc = setTimeout(function () {
-        if (Date.now() - lastRan >= limit) {
-          func.apply(null, args);
-          lastRan = Date.now();
-        }
-      }, limit - (Date.now() - lastRan));
-    }
-  };
-};

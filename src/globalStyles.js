@@ -19,6 +19,8 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--background-color);
     background-size: 15%;
     color: white;
+    padding: 0;
+    margin: 0;
   }
 
   h1,

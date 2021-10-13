@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import path from "path";
 import Link from "../../components/Link";
-import Layout from "../../components/Layout";
+import Layout, { Section } from "../../components/Layout";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
 import remarkSlug from "remark-slug";
 import mdxPrism from "mdx-prism";
@@ -22,7 +22,7 @@ const components = {
   blockquote: Quote,
   TestComponent: dynamic(() => import("../../components/TestComponent")),
   Head,
-  inlineCode: InlineCode
+  inlineCode: InlineCode,
 };
 
 export default function PostPage({ tocTree, source, frontMatter }) {
@@ -31,38 +31,40 @@ export default function PostPage({ tocTree, source, frontMatter }) {
       <Head>
         <title>Blog - {frontMatter.title}</title>
       </Head>
-      <div id="intro" />
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
-      </div>
-      <PostLayout toc={tocTree.length > 0}>
-        {tocTree.length > 0 ? <TOCTree tocTree={tocTree} /> : <></>}
-        <main>
-          <MDXRemote {...source} components={components} />
-        </main>
-      </PostLayout>
+      <Section>
+        <div id="intro" />
+        <div className="post-header">
+          <h1>{frontMatter.title}</h1>
+          {frontMatter.description && (
+            <p className="description">{frontMatter.description}</p>
+          )}
+        </div>
+        <PostLayout toc={tocTree.length > 0}>
+          {tocTree.length > 0 ? <TOCTree tocTree={tocTree} /> : <></>}
+          <main>
+            <MDXRemote {...source} components={components} />
+          </main>
+        </PostLayout>
 
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
+        <style jsx>{`
+          .post-header h1 {
+            margin-bottom: 0;
+          }
 
-        .post-header p {
-          padding: 0;
-          margin: 0;
-        }
+          .post-header p {
+            padding: 0;
+            margin: 0;
+          }
 
-        .post-header {
-          margin-bottom: 0;
-        }
+          .post-header {
+            margin-bottom: 0;
+          }
 
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
+          .description {
+            opacity: 0.6;
+          }
+        `}</style>
+      </Section>
     </Layout>
   );
 }
@@ -76,23 +78,23 @@ export const getStaticProps = async ({ params }) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkSlug],
-      rehypePlugins: [mdxPrism]
+      rehypePlugins: [mdxPrism],
     },
-    scope: data
+    scope: data,
   });
 
   const slugger = new GSlugger();
 
   const tocTree = generateToc(content, {
-    slugify: (slug) => (slug ? slugger.slug(slug) : () => {})
+    slugify: (slug) => (slug ? slugger.slug(slug) : () => {}),
   }).json;
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
-      tocTree
-    }
+      tocTree,
+    },
   };
 };
 
@@ -103,6 +105,6 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 };

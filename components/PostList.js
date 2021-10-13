@@ -1,13 +1,14 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Typist from "react-typist";
 
 const Container = styled.div`
   background-color: rgb(35, 42, 47);
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   width: 100%;
-  height: 40vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
@@ -18,12 +19,12 @@ const Container = styled.div`
 
 const Header = styled.div`
   margin: 0;
-  padding: 0 10px;
+  padding: 0 20px;
   background: rgb(26, 32, 35);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   height: 3rem;
   display: flex;
   align-items: center;
@@ -57,68 +58,66 @@ const Posts = styled.div`
 `;
 
 const Post = styled.a`
-  display: block;
+  display: inline;
   font-family: "Fira Code", monospace;
+  width: fit-content;
   margin: 0;
   padding: 2px 2px;
-  color: rgb(112, 122, 132);
+  color: rgba(250, 250, 250);
   transition: all 0.1s;
+  font-style: italic;
+  text-decoration: none;
 
   &:hover {
-    color: rgba(250, 250, 250);
+    color: var(--site-color);
   }
 `;
 
-const blink = keyframes`
-  from {
-    background: white;
-  }
-  50% {
-    background: white;
-  }
-  70% {
-    background: transparent;
-  }
-  to {
-    background: white;
-  }
-`
+const TerminalInput = styled.span`
+  font-family: "Fira Code", monospace;
 
-const Cursor = styled.div`
-  height: 1em;
-  width: 2px;
-  transform: translateY(5px);
-  animation: ${blink} 1.1s infinite;
-  background: white;
-  display: block;
-`
+  &:before {
+    content: "$ ";
+    color: var(--site-color);
+    font-family: "Fira Code", monospace;
+  }
+`;
 
 export default function PostList({ posts }) {
-  const [clicked, setClicked] = useState(null);
   return (
     <Container>
       <Header>
-        <p>Posts</p>
+        <p>Terminal</p>
       </Header>
       <Body>
-        <div>
+        {/*<div>
           {posts.map((_, i) => (
-            <p key={i}>{i}</p>
+            <p key={i}>{i + 1}</p>
           ))}
           <p>{posts.length + 1}</p>
-        </div>
+        </div>*/}
         <Posts>
-          {posts.map(({ data, ...post }, i) => (
-            <Link
-              key={i}
-              href={"/posts/" + post.filePath.replace(/\.mdx?$/, "")}
-              onClick={() => setClicked(post.filePath)}
-              passHref
-            >
-              <Post>{data.title}</Post>
-            </Link>
-          ))}
-          <Cursor />
+          <Typist startDelay={2000}>
+            <TerminalInput>fetch next-blog/posts</TerminalInput>
+            <br />
+            Loading...
+            <Typist.Backspace count={10} delay={500} />
+            <u>{posts.length.toString()} posts found:</u> <br />
+            {posts.map(({ data, ...post }, i) => (
+              <span key={i}>
+                <span style={{ color: "#E83A71" }}>{(i + 1).toString()}. </span>
+                <Link
+                  href={"/posts/" + post.filePath.replace(/\.mdx?$/, "")}
+                  onClick={() => setClicked(post.filePath)}
+                  passHref
+                >
+                  <Post>{data.title}</Post>
+                </Link>
+                <br />
+              </span>
+            ))}
+            <TerminalInput>{""}</TerminalInput>
+          </Typist>
         </Posts>
       </Body>
     </Container>

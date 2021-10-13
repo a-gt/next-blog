@@ -29,11 +29,13 @@ const App = ({ Component, pageProps }) => (
         crossOrigin="true"
       />
       <link href="./Ilisarniq.css" rel="stylesheet" />
+      <link href="./Typist.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       <link
         href="https://ghcdn.rawgit.org/PrismJS/prism-themes/master/themes/prism-dracula.css"
         rel="stylesheet"
       />
+      <script src="https://kit.fontawesome.com/d5a86ff847.js" crossOrigin="anonymous"></script>
     </Head>
     <Component {...pageProps} />
     <GlobalStyles />
