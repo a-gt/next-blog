@@ -77,8 +77,8 @@ const TerminalInput = styled.span`
   color: rgb(250, 250, 250);
 
   &:before {
-    content: "next@blog/posts # ";
-    color: #e83a71;
+    content: "$ ";
+    color: var(--accent-color);
     font-family: "Fira Code", monospace;
   }
 `;
@@ -105,7 +105,7 @@ export default function PostList({ posts }) {
             <Typist.Backspace count={10} delay={500} />
             <span style={{ color: "#3886DB" }}>.</span> <br />
             <span style={{ color: "#3886DB" }}>..</span> <br />
-            <span style={{ color: "var(--site-color)" }}>.next</span> <br />
+            <span style={{ color: "var(--accent-color)" }}>.next</span> <br />
             {posts.map(({ data, ...post }, i) => (
               <span key={i}>
                 <Link

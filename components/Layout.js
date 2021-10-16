@@ -164,7 +164,7 @@ const ToolbarContent = styled.div`
     line-height: 2rem;
 
     &:hover {
-      color: var(--site-color);
+      color: var(--accent-color);
       filter: drop-shadow(0 0 15px #3be8b0);
     }
   }

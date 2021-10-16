@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   }*/
 
   :root {
-    --site-color: #3be8b0;
+    --accent-color: #3be8b0;
     --background-color: rgb(24, 24, 27);
     --underline-color: rgba(255, 255, 255, 0.4);
     color-scheme: dark;

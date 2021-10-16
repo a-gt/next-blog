@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledA = styled.a`
-  --hover-color: var(--site-color);
+  --hover-color: var(--accent-color);
   color: inherit;
   text-decoration: underline;
   cursor: pointer;
