@@ -54,6 +54,10 @@ const ScrollReminder = styled.p`
   color: rgb(147, 157, 165);
 `;
 
+const Text = styled.p`
+  color: rgb(161, 161, 170);
+`
+
 export default function Index({ posts }) {
   const desktop = useMeadiQuery();
 
@@ -126,7 +130,7 @@ export default function Index({ posts }) {
       <Section medium>
         <h2>About Me</h2>
         <h4>./README.md</h4>
-        <p style={{ color: "rgb(161, 161, 170)" }}>
+        <Text>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut deleniti
           voluptatem facere deserunt eos quibusdam natus sed. Omnis unde atque
           ab cum pariatur alias, deserunt consectetur laudantium praesentium
@@ -144,8 +148,7 @@ export default function Index({ posts }) {
           quibusdam deleniti quod, ratione quas exercitationem maiores tempora
           repudiandae nesciunt sapiente repellat voluptatem placeat animi
           praesentium accusamus amet illo cum labore? Ad, quis!
-        </p>
-        <h2>Experience</h2>
+        </Text>
       </Section>
     </Layout>
   );
