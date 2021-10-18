@@ -6,10 +6,12 @@ import useAtTop from "../src/hooks/useAtTop";
 import HamburgerButton from "./HamburgerButton";
 
 export const Section = styled.div`
+  --width: ${props => props.medium ? 20 : 9}rem;
+  --mobile-width: ${props => props.medium ? 17.5 : 6.5}rem;
   padding-top: 100px;
   box-sizing: border-box;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: calc(var(--width) - var(--mobile-width));
+  padding-right: calc(var(--width) - var(--mobile-width));
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -28,14 +30,14 @@ export const Section = styled.div`
 
   @media (min-width: 1280px) {
     max-width: 1280px;
-    padding-left: 9rem;
-    padding-right: 9rem;
+    padding-left: var(--width);
+    padding-right: var(--width);
   }
 
   @media (min-width: 1536px) {
     max-width: 1536px;
-    padding-left: 9rem;
-    padding-right: 9rem;
+    padding-left: var(--width);
+    padding-right: var(--width);
   }
 
   h1 {
